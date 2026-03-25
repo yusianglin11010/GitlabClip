@@ -8,6 +8,7 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
+  "optional_host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {
       "resources": ["icons/copy.svg", "icons/check.svg"],
@@ -16,7 +17,10 @@
   ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "*://*.gitlab.com/*/-/issues/*",
+        "*://*.gitlab.com/*/-/merge_requests/*"
+      ],
       "js": ["content.js"],
       "css": ["content.css"],
       "run_at": "document_idle"

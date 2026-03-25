@@ -25,4 +25,8 @@ Clicking the copy button produces:
 
 ## Self-hosted GitLab
 
-The extension automatically works on any GitLab instance (including self-hosted) by detecting GitLab's URL pattern (`/-/issues/` and `/-/merge_requests/`). No additional configuration is needed.
+By default, the extension only runs on `*.gitlab.com`. To enable it on a self-hosted GitLab instance:
+
+1. Right-click the GitlabClip icon in the Chrome toolbar
+2. Select **This can read and change site data**
+3. Choose **On all sites**, or click **Learn more** to add specific sites
