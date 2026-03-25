@@ -27,6 +27,7 @@ Clicking the copy button produces:
 
 By default, the extension only runs on `*.gitlab.com`. To enable it on a self-hosted GitLab instance:
 
-1. Right-click the GitlabClip icon in the Chrome toolbar
-2. Select **This can read and change site data**
-3. Choose **On all sites**, or click **Learn more** to add specific sites
+1. Go to `chrome://extensions/` and find **GitlabClip**
+2. Click **Details**
+3. Under **Site access**, add your GitLab domain
+4. The extension will automatically start working on the added domain
