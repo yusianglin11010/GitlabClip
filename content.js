@@ -19,7 +19,7 @@ function escapeMarkdown(text) {
 
 function getTitle() {
   const byTestId = document.querySelector(
-    '[data-testid="issue-title"], [data-testid="merge-request-title"]'
+    '[data-testid="issue-title"], [data-testid="merge-request-title"], [data-testid="work-item-title"], [data-testid="title-content"]'
   );
   if (byTestId) return byTestId.textContent.trim();
 
@@ -105,7 +105,7 @@ function applyTheme(btn) {
 // === Injection ===
 function findTitleElement() {
   return (
-    document.querySelector('[data-testid="issue-title"], [data-testid="merge-request-title"]') ||
+    document.querySelector('[data-testid="issue-title"], [data-testid="merge-request-title"], [data-testid="work-item-title"], [data-testid="title-content"]') ||
     document.querySelector('h1.title')
   );
 }
@@ -124,7 +124,7 @@ function injectButton() {
   btn.addEventListener('click', handleCopy);
   applyTheme(btn);
 
-  titleEl.insertAdjacentElement('afterend', btn);
+  titleEl.insertAdjacentElement('beforeend', btn);
 }
 
 // === SPA Navigation ===
@@ -148,6 +148,8 @@ function observePageChanges() {
 
 // === Entry Point ===
 function init() {
+  if (window.__gitlabclip_injected) return;
+  window.__gitlabclip_injected = true;
   injectButton();
   observePageChanges();
   document.addEventListener('turbo:load', () => injectButton());
